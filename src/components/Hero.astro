@@ -20,7 +20,9 @@ const { t } = Astro.props;
     <p class="lead">{t.hero.lead}</p>
     <div class="actions">
       <EmailLink class="btn">{t.hero.cta}</EmailLink>
-      <a class="textlink" href={site.linkedin}>{t.hero.linkedin}</a>
+      <a class="textlink secondary" href={site.linkedin} aria-label={t.hero.linkedin}>
+        <span class="long">{t.hero.linkedin}</span><span class="short">LinkedIn</span>
+      </a>
     </div>
   </div>
   <figure class="figure">
