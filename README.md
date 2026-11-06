@@ -16,11 +16,13 @@ Persönliche Website von Simon Balz. Statische Seite, gebaut mit [Astro](https:/
 
 ## Befehle
 
+Paketmanager ist [pnpm](https://pnpm.io).
+
 ```bash
-npm install       # einmalig
-npm run dev       # lokale Vorschau unter http://localhost:4321
-npm run build     # prüft die Typen und baut nach dist/
-npm run preview   # zeigt den gebauten Stand
+pnpm install      # einmalig
+pnpm dev          # lokale Vorschau unter http://localhost:4321
+pnpm build        # prüft die Typen und baut nach dist/
+pnpm preview      # zeigt den gebauten Stand
 ```
 
 ## Veröffentlichen bei cyon
@@ -28,7 +30,7 @@ npm run preview   # zeigt den gebauten Stand
 Gebaut wird lokal, auf den Server kommt nur der Inhalt von `dist/`. Das Zielverzeichnis darf nichts anderes enthalten, weil `--delete` alles entfernt, was nicht aus dem Build stammt.
 
 ```bash
-npm run build
+pnpm build
 rsync -az --delete --chmod=Dgo+rx,Fgo+r --exclude '.well-known/' ./dist/ <login>@<host>:<document root>/
 ```
 
