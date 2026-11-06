@@ -36,6 +36,8 @@ pnpm run deploy         # baut und lädt hoch
 
 `pnpm deploy` ohne `run` ist ein eingebauter pnpm-Befehl und startet nicht dieses Skript.
 
+Vor dem Upload setzt das Skript alle Dateien in `dist/` auf «für alle lesbar». Sonst antwortet der Server mit 403 auf Dateien, die lokal nur für den eigenen Benutzer lesbar sind.
+
 Der Upload verwendet `rsync --delete`: Im Zielverzeichnis wird alles entfernt, was nicht aus dem Build stammt, ausser `.well-known/`. Das Verzeichnis darf deshalb nichts anderes enthalten. Die Weiterleitung auf HTTPS wird im my.cyon eingestellt, nicht in der `.htaccess`.
 
 ## Drittanbieter
