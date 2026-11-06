@@ -1,0 +1,4 @@
+# Pakete, die bei der Installation eigene Build-Skripte ausführen dürfen.
+allowBuilds:
+  esbuild: true
+  sharp: true
