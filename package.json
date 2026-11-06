@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy:check": "pnpm build && rsync -azn --itemize-changes --delete --chmod=Dgo+rx,Fgo+r --exclude '.well-known/' ./dist/ janowsky@janowsky.ch:/home/janowsky/public_html/simonbalz/",
+    "deploy": "pnpm build && rsync -az --delete --chmod=Dgo+rx,Fgo+r --exclude '.well-known/' ./dist/ janowsky@janowsky.ch:/home/janowsky/public_html/simonbalz/"
   },
   "dependencies": {
     "astro": "^5.0.0"

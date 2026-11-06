@@ -27,14 +27,16 @@ pnpm preview      # zeigt den gebauten Stand
 
 ## Veröffentlichen bei cyon
 
-Gebaut wird lokal, auf den Server kommt nur der Inhalt von `dist/`. Das Zielverzeichnis darf nichts anderes enthalten, weil `--delete` alles entfernt, was nicht aus dem Build stammt.
+Gebaut wird lokal, auf den Server kommt nur der Inhalt von `dist/`. Ziel ist `/home/janowsky/public_html/simonbalz/` auf `janowsky@janowsky.ch`, die Anmeldung läuft über den SSH-Schlüssel.
 
 ```bash
-pnpm build
-rsync -az --delete --chmod=Dgo+rx,Fgo+r --exclude '.well-known/' ./dist/ <login>@<host>:<document root>/
+pnpm run deploy:check   # baut und zeigt, was hochgeladen und gelöscht würde, ohne etwas zu ändern
+pnpm run deploy         # baut und lädt hoch
 ```
 
-`<login>`, `<host>` und `<document root>` stehen im my.cyon. Die Weiterleitung auf HTTPS wird dort eingestellt, nicht in der `.htaccess`.
+`pnpm deploy` ohne `run` ist ein eingebauter pnpm-Befehl und startet nicht dieses Skript.
+
+Der Upload verwendet `rsync --delete`: Im Zielverzeichnis wird alles entfernt, was nicht aus dem Build stammt, ausser `.well-known/`. Das Verzeichnis darf deshalb nichts anderes enthalten. Die Weiterleitung auf HTTPS wird im my.cyon eingestellt, nicht in der `.htaccess`.
 
 ## Drittanbieter
 
