@@ -1,4 +1,5 @@
 ---
+import EmailLink from './EmailLink.astro';
 import { site } from '../site';
 import type { Dictionary } from '../i18n';
 
@@ -12,7 +13,7 @@ const { t } = Astro.props;
 <section class="section contact" id="kontakt">
   <div class="wrap">
     <h2>{t.contact.title}</h2>
-    <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+    <EmailLink class="mail" showAddress>{t.contact.emailFallback}</EmailLink>
     <ul class="links">
       <li><a class="textlink" href={site.linkedin}>LinkedIn</a></li>
       <li><a class="textlink" href={site.github}>GitHub</a></li>

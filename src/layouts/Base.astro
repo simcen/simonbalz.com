@@ -29,7 +29,6 @@ const structuredData = {
     image: `${site.url}/assets/simon-balz.webp`,
     jobTitle: site.jobTitle,
     description: t.meta.description,
-    email: `mailto:${site.email}`,
     worksFor: { '@type': 'Organization', name: site.employer.name, url: site.employer.url },
     address: { '@type': 'PostalAddress', addressRegion: 'Bern', addressCountry: 'CH' },
     knowsAbout: t.meta.knowsAbout,
@@ -85,5 +84,13 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <script is:inline>
+      // Setzt die E-Mail-Links zusammen (siehe EmailLink.astro).
+      document.querySelectorAll('a[data-m]').forEach(function (a) {
+        var m = atob(a.dataset.m).split('').reverse().join('');
+        a.href = 'mailto:' + m + (a.dataset.s ? '?subject=' + encodeURIComponent(a.dataset.s) : '');
+        if (a.dataset.show) a.textContent = m;
+      });
+    </script>
   </body>
 </html>

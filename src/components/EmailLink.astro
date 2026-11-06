@@ -1,0 +1,17 @@
+---
+// E-Mail-Link ohne Klartext-Adresse im HTML. Die Adresse steht verschlüsselt in data-m
+// und wird erst im Browser durch das Skript in Base.astro zu einem mailto-Link.
+import { site } from '../site';
+
+interface Props {
+  class?: string;
+  subject?: string;
+  /** true: der Linktext wird im Browser durch die Adresse ersetzt. */
+  showAddress?: boolean;
+}
+
+const { class: className, subject, showAddress = false } = Astro.props;
+const encoded = btoa([...site.email].reverse().join(''));
+---
+
+<a class={className} href="#kontakt" data-m={encoded} data-s={subject} data-show={showAddress ? 'true' : undefined}><slot /></a>

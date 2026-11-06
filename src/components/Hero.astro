@@ -1,4 +1,5 @@
 ---
+import EmailLink from './EmailLink.astro';
 import { site } from '../site';
 import type { Dictionary } from '../i18n';
 
@@ -19,7 +20,7 @@ const { t } = Astro.props;
     <div>
       <p class="lead">{t.hero.lead}</p>
       <div class="actions">
-        <a class="btn" href={`mailto:${site.email}`}>{t.hero.cta}</a>
+        <EmailLink class="btn">{t.hero.cta}</EmailLink>
         <a class="textlink" href={site.linkedin}>{t.hero.linkedin}</a>
       </div>
     </div>

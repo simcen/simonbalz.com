@@ -129,7 +129,8 @@ export const en: Dictionary = {
     "text": "I live with my family in the Bern region. Away from work I love to cook, ride my bike or take photographs."
   },
   "contact": {
-    "title": "Let's talk."
+    "title": "Let's talk.",
+    "emailFallback": "simon [at] balz [dot] me"
   },
   "footer": {
     "location": "Bern region, Switzerland"

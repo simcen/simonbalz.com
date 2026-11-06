@@ -1,5 +1,5 @@
 ---
-import { site } from '../site';
+import EmailLink from './EmailLink.astro';
 import { mandatesIcons } from './icons';
 import type { Dictionary } from '../i18n';
 
@@ -28,7 +28,7 @@ const { t } = Astro.props;
       }
     </ul>
     <div class="topics">
-      <a class="btn" href={`mailto:${site.email}?subject=${encodeURIComponent(t.mandates.mailSubject)}`}>{t.mandates.cta}</a>
+      <EmailLink class="btn" subject={t.mandates.mailSubject}>{t.mandates.cta}</EmailLink>
       <ul>
         {t.mandates.topics.map((topic) => <li>{topic}</li>)}
       </ul>

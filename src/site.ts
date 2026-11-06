@@ -2,6 +2,7 @@
 export const site = {
   url: 'https://simonbalz.com',
   name: 'Simon Balz',
+  // Erscheint nie im Klartext im HTML, siehe components/EmailLink.astro.
   email: 'simon@balz.me',
   linkedin: 'https://www.linkedin.com/in/simonbalz/',
   github: 'https://github.com/simcen/',
