@@ -1,0 +1,35 @@
+---
+import { homePath, type Dictionary, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  t: Dictionary;
+}
+
+const { lang, t } = Astro.props;
+const languages: { code: Lang; label: string }[] = [
+  { code: 'de', label: 'DE' },
+  { code: 'en', label: 'EN' },
+];
+---
+
+<header class="wrap top">
+  <a class="logo" href="#top" aria-label="Simon Balz">
+    <img src="/assets/simon-balz-logo.png" alt="Simon Balz Logo" width="360" height="322" />
+  </a>
+  <nav aria-label="Navigation">
+    <a href="#arbeit">{t.nav.approach}</a>
+    <a href="#ki">{t.nav.ai}</a>
+    <a href="#mandate">{t.nav.mandates}</a>
+    <a href="#kontakt">{t.nav.contact}</a>
+    <div class="lang">
+      {
+        languages.map(({ code, label }) => (
+          <a href={homePath[code]} lang={code} hreflang={code} aria-current={code === lang ? 'page' : undefined}>
+            {label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>

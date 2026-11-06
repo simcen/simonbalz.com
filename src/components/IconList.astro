@@ -1,0 +1,21 @@
+---
+// Drei Einträge mit Piktogramm, Titel und Text. Wird für «Arbeitsweise» und «KI» verwendet.
+interface Props {
+  items: { title: string; text: string }[];
+  icons: string[];
+}
+
+const { items, icons } = Astro.props;
+---
+
+<ul class="principles">
+  {
+    items.map((item, i) => (
+      <li>
+        <svg viewBox="0 0 84 84" aria-hidden="true" set:html={icons[i]} />
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </li>
+    ))
+  }
+</ul>

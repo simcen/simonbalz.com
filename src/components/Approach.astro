@@ -1,0 +1,18 @@
+---
+import IconList from './IconList.astro';
+import { approachIcons } from './icons';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section" id="arbeit">
+  <div class="wrap">
+    <h2>{t.approach.title}</h2>
+    <IconList items={t.approach.items} icons={approachIcons} />
+  </div>
+</section>

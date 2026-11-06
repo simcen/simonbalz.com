@@ -1,0 +1,21 @@
+---
+import { site } from '../site';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section contact" id="kontakt">
+  <div class="wrap">
+    <h2>{t.contact.title}</h2>
+    <a class="mail" href={`mailto:${site.email}`}>{site.email}</a>
+    <ul class="links">
+      <li><a class="textlink" href={site.linkedin}>LinkedIn</a></li>
+      <li><a class="textlink" href={site.github}>GitHub</a></li>
+    </ul>
+  </div>
+</section>

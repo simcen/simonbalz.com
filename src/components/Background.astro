@@ -1,0 +1,26 @@
+---
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section" id="weg">
+  <div class="wrap split">
+    <h2>{t.background.title}</h2>
+    <ol class="timeline">
+      {
+        t.background.items.map((item) => (
+          <li>
+            <span class="when">{item.when}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

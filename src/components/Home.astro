@@ -1,0 +1,39 @@
+---
+// Die ganze Startseite. Beide Sprachseiten verwenden diese eine Vorlage.
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import PatternBand from './PatternBand.astro';
+import Approach from './Approach.astro';
+import Ai from './Ai.astro';
+import Background from './Background.astro';
+import Mandates from './Mandates.astro';
+import Private from './Private.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { dictionaries, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<Base lang={lang} t={t}>
+  <div class="stage">
+    <Header lang={lang} t={t} />
+    <Hero t={t} />
+  </div>
+  <PatternBand />
+  <main>
+    <Approach t={t} />
+    <Ai t={t} />
+    <Background t={t} />
+    <Mandates t={t} />
+    <Private t={t} />
+    <Contact t={t} />
+  </main>
+  <Footer t={t} />
+</Base>

@@ -1,0 +1,21 @@
+---
+import IconList from './IconList.astro';
+import { aiIcons } from './icons';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section ai" id="ki">
+  <div class="wrap">
+    <div class="split">
+      <h2>{t.ai.title}</h2>
+      <p class="intro">{t.ai.intro}</p>
+    </div>
+    <IconList items={t.ai.items} icons={aiIcons} />
+  </div>
+</section>

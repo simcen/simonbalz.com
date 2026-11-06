@@ -1,0 +1,37 @@
+---
+import { site } from '../site';
+import { mandatesIcons } from './icons';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="section mandate" id="mandate">
+  <div class="wrap">
+    <div class="split">
+      <h2>{t.mandates.title}</h2>
+      <p class="intro">{t.mandates.intro}</p>
+    </div>
+    <ul class="offers">
+      {
+        t.mandates.offers.map((offer, i) => (
+          <li>
+            <svg viewBox="0 0 64 64" aria-hidden="true" set:html={mandatesIcons[i]} />
+            <h3>{offer.title}</h3>
+            <p>{offer.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="topics">
+      <a class="btn" href={`mailto:${site.email}?subject=${encodeURIComponent(t.mandates.mailSubject)}`}>{t.mandates.cta}</a>
+      <ul>
+        {t.mandates.topics.map((topic) => <li>{topic}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

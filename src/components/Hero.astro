@@ -1,0 +1,34 @@
+---
+import { site } from '../site';
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="wrap hero" id="top">
+  <h1>
+    <span class="name">{t.hero.name}</span>
+    <span>{t.hero.line1}</span>
+    <span>{t.hero.line2}</span>
+  </h1>
+  <div class="hero-body">
+    <div>
+      <p class="lead">{t.hero.lead}</p>
+      <div class="actions">
+        <a class="btn" href={`mailto:${site.email}`}>{t.hero.cta}</a>
+        <a class="textlink" href={site.linkedin}>{t.hero.linkedin}</a>
+      </div>
+    </div>
+    <figure class="figure">
+      <span class="shape-a"></span>
+      <span class="shape-b"></span>
+      <div class="portrait">
+        <img src="/assets/simon-balz.webp" alt={t.meta.portraitAlt} width="400" height="512" fetchpriority="high" />
+      </div>
+    </figure>
+  </div>
+</section>

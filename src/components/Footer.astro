@@ -1,0 +1,14 @@
+---
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  t: Dictionary;
+}
+
+const { t } = Astro.props;
+---
+
+<footer class="wrap">
+  <span>© {new Date().getFullYear()} Simon Balz</span>
+  <span>{t.footer.location}</span>
+</footer>
