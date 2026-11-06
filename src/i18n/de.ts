@@ -131,7 +131,7 @@ export const de = {
     "emailFallback": "simon [at] balz [punkt] me"
   },
   "footer": {
-    "location": "Läuft mit ☕ in Bern"
+    "location": "Mit viel ☕ gebaut in Bern"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
