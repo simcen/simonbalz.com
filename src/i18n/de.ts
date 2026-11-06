@@ -127,7 +127,7 @@ export const de = {
     "text": "Ich lebe mit meiner Familie in der Region Bern. Abseits der Arbeit koche ich leidenschaftlich gern, bin mit dem Bike unterwegs oder fotografiere."
   },
   "contact": {
-    "title": "Reden wir.",
+    "title": "Let's talk.",
     "emailFallback": "simon [at] balz [punkt] me"
   },
   "footer": {
