@@ -21,7 +21,8 @@ export const en: Dictionary = {
     "approach": "Approach",
     "ai": "AI",
     "mandates": "Mandates",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu"
   },
   "hero": {
     "name": "Simon Balz, Head of Technology at Betty Bossi",

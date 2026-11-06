@@ -18,10 +18,12 @@ const languages: { code: Lang; label: string }[] = [
     <img src="/assets/simon-balz-logo.png" alt="Simon Balz Logo" width="360" height="322" />
   </a>
   <nav aria-label="Navigation">
-    <a href="#arbeit">{t.nav.approach}</a>
-    <a href="#ki">{t.nav.ai}</a>
-    <a href="#mandate">{t.nav.mandates}</a>
-    <a href="#kontakt">{t.nav.contact}</a>
+    <div class="links" id="menu">
+      <a href="#arbeit">{t.nav.approach}</a>
+      <a href="#ki">{t.nav.ai}</a>
+      <a href="#mandate">{t.nav.mandates}</a>
+      <a href="#kontakt">{t.nav.contact}</a>
+    </div>
     <div class="lang">
       {
         languages.map(({ code, label }) => (
@@ -31,5 +33,34 @@ const languages: { code: Lang; label: string }[] = [
         ))
       }
     </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label={t.nav.menu}>
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<script is:inline>
+  // Menü auf Mobile öffnen und schliessen.
+  (function () {
+    var top = document.querySelector('.top');
+    var button = top.querySelector('.menu-toggle');
+    function setOpen(open) {
+      top.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', String(open));
+    }
+    button.addEventListener('click', function () {
+      setOpen(!top.classList.contains('open'));
+    });
+    top.querySelectorAll('.links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setOpen(false);
+      });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') setOpen(false);
+    });
+    document.addEventListener('click', function (event) {
+      if (!top.contains(event.target)) setOpen(false);
+    });
+  })();
+</script>

@@ -19,7 +19,8 @@ export const de = {
     "approach": "Arbeitsweise",
     "ai": "KI",
     "mandates": "Mandate",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "menu": "Menü"
   },
   "hero": {
     "name": "Simon Balz, Head of Technology bei Betty Bossi",

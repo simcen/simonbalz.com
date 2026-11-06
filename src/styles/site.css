@@ -39,8 +39,10 @@ svg{display:block}
 .top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px;width:100%}
 .top .logo img{display:block;height:58px;width:auto}
 .top nav{display:flex;align-items:center;gap:clamp(16px,3vw,36px);font-size:.95rem}
-.top nav > a{text-decoration:none;color:var(--muted)}
-.top nav > a:hover{color:var(--text)}
+.top .links{display:flex;align-items:center;gap:clamp(16px,3vw,36px)}
+.top .links a{text-decoration:none;color:var(--muted)}
+.top .links a:hover{color:var(--text)}
+.menu-toggle{display:none}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--bg)}
 .lang a{text-decoration:none;display:block;
   font:inherit;font-size:.82rem;font-weight:600;color:var(--muted);
@@ -179,16 +181,30 @@ footer{padding-block:28px;display:flex;justify-content:space-between;align-items
 }
 
 @media (max-width:860px){
-  .top nav > a{display:none}
+  /* Navigation: Links klappen hinter einem Menü-Button auf. */
+  .top nav{gap:10px}
+  .menu-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:44px;height:38px;padding:0;border:1px solid var(--line);border-radius:999px;background:var(--bg);cursor:pointer}
+  .menu-toggle span{display:block;width:18px;height:2px;border-radius:2px;background:var(--text);transition:transform .2s,opacity .2s}
+  .top.open .menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .top.open .menu-toggle span:nth-child(2){opacity:0}
+  .top.open .menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .top .links{display:none;position:absolute;top:100%;left:var(--gutter);right:var(--gutter);z-index:5;flex-direction:column;align-items:stretch;gap:0;padding:8px;background:var(--surface);border:1px solid var(--line);border-radius:20px;font-size:1.1rem}
+  .top.open .links{display:flex}
+  .top .links a{padding:13px 14px;border-radius:12px;color:var(--text);font-weight:600}
+  .top .links a:hover,.top .links a:focus-visible{background:var(--bg)}
   .stage::before{width:120vw;right:-38vw;top:96px}
-  .stage{min-height:0}
+  /* Einstieg und Musterband (Höhe 100vw / 12) füllen zusammen den sichtbaren Bereich. */
+  .stage{min-height:min(calc(100svh - 8.34vw),720px)}
   .top{padding-block:14px}
   .top .logo img{height:46px}
   /* Mobile: kleines Porträt oben rechts neben der Namenszeile, darunter Tagline, Text und Button. */
-  .hero{--pw:clamp(96px,25vw,180px);display:block;padding-top:6px;padding-bottom:28px}
-  .figure{position:absolute;top:6px;right:calc(var(--gutter) + 12px);width:var(--pw);margin:0}
+  .hero{--pw:clamp(96px,25vw,180px);--pt:clamp(6px,2.4svh,20px);display:flex;flex-direction:column;padding-top:var(--pt);padding-bottom:28px}
+  /* Freier Platz verteilt sich über und unter der Beschreibung und unter den Buttons. */
+  .hero-text{flex:1;display:flex;flex-direction:column}
+  .hero .actions{margin-bottom:auto}
+  .figure{position:absolute;top:var(--pt);right:calc(var(--gutter) + 12px);width:var(--pw);margin:0}
   h1 .name{display:flex;align-items:flex-end;min-height:calc(var(--pw) * 1.28);padding-right:calc(var(--pw) + 32px);margin-bottom:.9em;hyphens:manual}
-  .lead{font-size:1rem;line-height:1.45;margin-bottom:1.2rem}
+  .lead{font-size:1rem;line-height:1.45;margin:auto 0;padding-bottom:1.2rem}
   /* Mobile: beide Aktionen als gleich hohe Buttons in einer Zeile über die ganze Breite. */
   .hero .actions{flex-wrap:nowrap;gap:10px}
   .hero .btn,.hero .secondary{flex:1 1 auto;padding:12px 18px;border-radius:999px;text-align:center;white-space:nowrap}
