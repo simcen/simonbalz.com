@@ -133,7 +133,7 @@ export const en: Dictionary = {
     "emailFallback": "simon [at] balz [dot] me"
   },
   "footer": {
-    "location": "Bern region, Switzerland"
+    "location": "Runs on ☕ in Bern"
   },
   "notFound": {
     "title": "Page not found",
