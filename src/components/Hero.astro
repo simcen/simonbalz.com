@@ -11,25 +11,23 @@ const { t } = Astro.props;
 ---
 
 <section class="wrap hero" id="top">
-  <h1>
-    <span class="name">{t.hero.name}</span>
-    <span>{t.hero.line1}</span>
-    <span>{t.hero.line2}</span>
-  </h1>
-  <div class="hero-body">
-    <div>
-      <p class="lead">{t.hero.lead}</p>
-      <div class="actions">
-        <EmailLink class="btn">{t.hero.cta}</EmailLink>
-        <a class="textlink" href={site.linkedin}>{t.hero.linkedin}</a>
-      </div>
+  <div class="hero-text">
+    <h1>
+      <span class="name">{t.hero.name}</span>
+      <span>{t.hero.line1}</span>
+      <span>{t.hero.line2}</span>
+    </h1>
+    <p class="lead">{t.hero.lead}</p>
+    <div class="actions">
+      <EmailLink class="btn">{t.hero.cta}</EmailLink>
+      <a class="textlink" href={site.linkedin}>{t.hero.linkedin}</a>
     </div>
-    <figure class="figure">
-      <span class="shape-a"></span>
-      <span class="shape-b"></span>
-      <div class="portrait">
-        <img src="/assets/simon-balz.webp" alt={t.meta.portraitAlt} width="600" height="768" fetchpriority="high" />
-      </div>
-    </figure>
   </div>
+  <figure class="figure">
+    <span class="shape-a"></span>
+    <span class="shape-b"></span>
+    <div class="portrait">
+      <img src="/assets/simon-balz.webp" alt={t.meta.portraitAlt} width="600" height="768" fetchpriority="high" />
+    </div>
+  </figure>
 </section>
